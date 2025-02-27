@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//for of 문문
+		function solution(day, arr){
+			let answer=0; //차량의 개수
+			for(let x of arr){
+				if(x%10 === day) answer++;
+			}
+			return answer;
+		}
+		arr = [12, 20, 54, 30, 87, 91, 30];
+		console.log(solution(0, arr));
+
+		//for 문
+		// function solution(day, n){
+		// 	let answer = 0;
+		// 	for(let i=0; i<=n.length; i++){
+		// 		if(n[i]%10 === day) answer++;
+		// 	}
+		// 	return answer;
+		// }
+		// let num = [12, 20, 54, 30, 87, 91, 30];
+		// console.log(solution(0, num));
+	</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>세 수 중 최솟값</title>
+</head>
+<body>
+	<h3>a, b, c 중 가장 작은 값이 c(3) 이라 한다면?</h3>
+	<script>
+		function solution(a, b, c){
+			let answer;
+
+			if(c<a) answer=c;
+			else answer=a; 
+			if(b<answer) answer=b;
+			
+			return answer;
+		}
+		console.log(solution(5,9,3));
+	</script>
+</body>
+</html>

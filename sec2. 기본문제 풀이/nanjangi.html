@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function solution(arr){
+			let answer=arr;
+			let sum = arr.reduce((a,b)=>a+b);
+			let flag = 0;
+			
+			for(let i=0; i<8; i++){ 
+				for(let j=i+1; j<9; j++){
+					if(sum-(arr[i]+arr[j])===100){ 
+						answer.splice(j, 1); //j를 하나만 제거
+						answer.splice(i, 1);
+						flag=1;
+						break;
+					}
+				}
+				if(flag == 1) break;
+			}
+			return answer;
+		}
+		let arr = [22, 7, 21, 19, 10, 15, 25, 8, 13];
+		console.log(solution(arr));
+		/*
+		if구문이 참이면 flag를 0에서 1로 바꾸고 구문을 멈춘다.
+		안에있는 포문에 나와서 flag가 1(참)이면 구문을 멈춘다.
+		*/
+	</script>
+</body>
+</html>

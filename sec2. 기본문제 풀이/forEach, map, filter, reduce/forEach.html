@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>forEach</title>
+</head>
+<body>
+	<script>
+		let a = [10,11,12,13,14,15,16];
+		a.forEach(function(v, i){
+			console.log(v,i, this);
+		}, [1, 2]);
+	</script>
+</body>
+</html>

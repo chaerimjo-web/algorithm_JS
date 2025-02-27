@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//해당하는 문자열의 개수 출력
+		// function solution(s, r){
+		// 	let answer=0;
+		// 	for(let x of s){
+		// 		if(x === r) answer++;
+		// 	}
+		// 	return answer;
+		// }
+		// let str = "COMPUTERPROGRAMMING";
+		// console.log(solution(str, "R"));
+
+		//
+		function solution(s, r){
+			let answer=s.split(r).length; //r기준으로 구분해서 개수가 4개 출력된다다
+			return answer-1; //그래서 1개를 빼준다. 
+		}
+		let str = "COMPUTERPROGRAMMING";
+		console.log(solution(str, "R"));
+		
+	</script>
+</body>
+</html>
