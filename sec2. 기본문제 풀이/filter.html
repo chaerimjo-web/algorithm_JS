@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>중복단어제거</title>
+</head>
+<body>
+	<!-- 필터링 된 배열  -->
+	<script>
+		//고차함수 -> 인수로 함수를 전달받는 것. 
+		/*filter함수 -> 값이 참이 리턴되는 요소만 배열화시켜 answer에 저장된다. . 
+		s배열을 하나하나씩 호출하면서 v값이 달라진다. v는 s의 밸류값, i는 인덱스번호*/
+
+		function solution(s){
+			let answer;
+			answer=s.filter(function(v, i){
+				if(s.indexOf(v)===i) return true;
+				console.log(s.indexOf(v), i);
+			});
+			return answer;
+		}
+		let str = ["good", "time", "good", "time", "student" ];
+		console.log(solution(str));
+		
+	</script>
+</body>
+</html>

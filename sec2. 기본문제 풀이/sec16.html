@@ -3,9 +3,43 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>중복문자제거</title>
+	<title>중복문자제거 index of</title>
 </head>
 <body>
-	
+	<div>
+		<img src="image/indexOf.png" alt="">
+	</div>
+	<!-- 
+		index of
+		: 특정 문자 위치 찾기
+		구조
+		: let index = string.indexOf(searchValue, startIndex);
+			searchValue: 찾고자 하는 문자열 또는 문자입니다.
+			startIndex (선택 사항): 검색을 시작할 인덱스입니다. 이 값을 지정하면 해당 인덱스부터 검색을 시작합니다. 기본값은 0입니다.
+	-->
+	 <script>
+		// 첫번째로 발견된 문자를 리턴해준다. 발견하지 못할 시 -1을 반환한다. 
+		//최초의 인덱스 문자 번호 / i본연의 위치
+		//처음 발견되는 중복된 문자만 answer에 누적한다.
+		/*
+			동작 원리:
+			indexOf(s[i]) === i 조건의 의미
+			s.indexOf(s[i])는 문자열 s에서 s[i]가 처음 등장하는 위치를 반환합니다.
+			i는 현재 탐색 중인 문자 s[i]의 인덱스입니다.
+			s.indexOf(s[i]) === i가 참이면, s[i]가 처음 등장한 위치에서만 answer에 추가됩니다.
+		*/
+		function solution(s){
+			let answer="";
+
+			for(let i=0; i<=s.length; i++){
+				// console.log(s[i], i, s.indexOf(s[i]));
+				if(s.indexOf(s[i])===i) answer+=s[i];
+			}
+			return answer;
+		}
+		let str = "ksekkset";
+		console.log(solution(str));
+		
+	 </script>
 </body>
 </html>
