@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ㅏㅐㅐ">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>가운데 문자 출력</title>
+</head>
+<body>
+	<script>
+		//substring 문자 자르기  
+		/*
+		substring("시작 위치", "종료 위치") 또는 substring("시작 위치")
+		substring() 함수는 시작 위치에서 종료 위치까지 문자열을 자른다. 주의할 점은 종료 위치의 -1까지 문자열을 자른다는 것이다.
+		*/
+		function solution(s){
+			let answer;
+			let mid = Math.floor(s.length/2); //글자를 2로 나눔.  인덱스 번호 2
+
+			//글자수에서 2로 나누고 나머지 값이 1이면
+			if(s.length%2 == 1) answer = s.substring(mid, mid+1);
+			else answer = s.substring(mid-1, mid+1);
+
+			return answer;
+		}
+		let str = "studyd";
+		console.log(solution(str));
+		
+	</script>
+</body>
+</html>
