@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>격자판 최대합</title>
+</head>
+<body>
+	<div>
+		<h1>
+			2차원 배열
+			2차원 배열은 행렬과 같이 2차원으로 구성된 배열을 의미한다.
+		</h1>
+		<img src="/sec3. 1,2차원 배열 탐색/image/2차원 배열.png" alt="">
+	</div>
+	<script>
+		function solution(arr){
+			/*
+			  최대값을 구하기 위한 변수
+			  arr의 길이
+			  행과 열을 0으로 초기화
+
+				2중 포문 | i를 고정, j가 돈다. 
+				초기화 
+				행끼리 더한 합을 sum1 ,열열끼리 더한 합을 sum2 |더해서 누적
+
+				3개중 가장 높은 수를 answer에 담는다. 
+
+				초기화
+
+				대각선 합 구하기
+				포문
+				왼쪽대각선시작->sum1 같은 수끼리 더해서 누적.
+				오른쪽 대각선 시작 -> sum2 
+				가장 큰 값 answer에 담기
+			*/
+			let answer = Number.MIN_SAFE_INTEGER;
+			let n = arr.length;
+			let sum1=sum2=0;
+
+			for(let i=0; i<n; i++){
+				sum1=sum2=0;
+				for(let j=0; j<n; j++){
+					sum1+=arr[i][j];
+					sum2+=arr[j][i];
+				}
+				answer=Math.max(answer, sum1, sum2);
+			}
+			sum1=sum2=0;
+			for(let i=0; i<n; i++){
+				sum1+=arr[i][i];
+				sum2+=arr[i][n-i-1];
+			}
+			answer=Math.max(answer, sum1, sum2);
+			return answer;
+		}
+		let arr = [[10, 13, 10, 12, 15],
+							 [12, 39, 30, 23, 11],
+							 [11, 25, 50, 53, 15],
+							 [19, 27, 29, 37, 27],
+							 [19, 13, 30, 13, 19]];
+		console.log(solution(arr));
+		/*
+		1. 행, 열 더해서 누적하기
+		2. 제일 큰 수를 answer에 담기
+		3. 대각선 더해서 누적하기기
+		4. 제일 큰 수를 answer에 담기
+		*/
+	</script>
+</body>
+</html>
