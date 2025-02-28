@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>봉우리</title>
+</head>
+<body>
+	<script>
+		/*
+		dx 행의 상하좌우 값 / dy 열의 상하좌우 값 
+
+		포문 i, j4
+
+			포문 (가려는 방향)
+				방향 탐색하는 행 좌표 nx
+				방향 탐색하는 행 좌표 ny
+
+				이프문
+					상하좌우 좌표가 현재 좌표보다 크거나 같으면 
+		*/
+		function solution(arr){
+			let answer=0;
+			let n = arr.length;
+			let dx = [-1, 0, 1, 0];
+			let dy = [0, 1, 0, -1];
+
+			for(let i=0; i<n; i++){
+				for(let j=0; j<n; j++){
+					let flag=1;
+					for(let k=0; k<4; k++){
+						let nx = i+dx[k]; //[k]는 dx와 dy 배열에서 현재 방향을 나타내는 인덱스
+						let ny = j+dy[k];
+						/*
+						k = 0일 때: dx[0] = -1, dy[0] = 0 → 위쪽으로 한 칸 이동
+						k = 1일 때: dx[1] = 0, dy[1] = 1 → 오른쪽으로 한 칸 이동
+						k = 2일 때: dx[2] = 1, dy[2] = 0 → 아래쪽으로 한 칸 이동
+						k = 3일 때: dx[3] = 0, dy[3] = -1 → 왼쪽으로 한 칸 이동
+						*/
+						if(nx>=0 && nx<n && ny>=0 && ny<n && arr[nx][ny]>=arr[i][j]){
+							flag=0;
+							break;
+						}
+					}
+					if(flag) answer++;
+				}
+			}
+			return answer;	
+		}
+		let arr=[[5, 3, 7, 2, 3],
+						 [3, 7, 1, 6, 1],
+						 [7, 2, 5, 3, 4],
+						 [4, 3, 6, 4, 1],
+						 [8, 7, 3, 5, 2]];
+		console.log(solution(arr));
+		
+	</script>
+</body>
+</html>
