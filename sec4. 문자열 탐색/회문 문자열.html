@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>회문 문자열</title>
+</head>
+<body>
+	<div>앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열을 회문 문자열이라고 합니다.</div>
+	<script>
+		function solution(s){
+			let answer="YES";
+			let len = s.length;
+			s = s.toLowerCase();
+			// console.log(s);
+			for(let i=0; i<Math.floor(len/2); i++){
+				if(s[i] !== s[len-i-1]) return 'NO';
+			}
+			return answer;
+		}
+		let str = "gooG";
+		console.log(solution(str));
+		
+	</script>
+</body>
+</html>
