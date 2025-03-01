@@ -41,12 +41,15 @@
 			for(let i=0; i<n; i++){
 				sum1=sum2=0;
 				for(let j=0; j<n; j++){
-					sum1+=arr[i][j];
+					sum1+=arr[i][j]; 
 					sum2+=arr[j][i];
 				}
 				answer=Math.max(answer, sum1, sum2);
+				// console.log(sum1); -> 60,115,154,139,94 열 끼리 더한 합 
+				// console.log(sum2);-> 71,117,149,138,87,155 행 끼리 더한 합 
+				//가장 큰 수를 answer에 담는다. 
 			}
-			sum1=sum2=0;
+			sum1=sum2=0; //가장큰값을 answer에 담았으니 sum1, sum2는 초기화한다.
 			for(let i=0; i<n; i++){
 				sum1+=arr[i][i];
 				sum2+=arr[i][n-i-1];

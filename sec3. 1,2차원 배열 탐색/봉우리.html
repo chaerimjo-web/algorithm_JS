@@ -22,24 +22,28 @@
 		function solution(arr){
 			let answer=0;
 			let n = arr.length;
-			let dx = [-1, 0, 1, 0];
-			let dy = [0, 1, 0, -1];
+			let dx = [-1, 0, 1, 0]; //행 
+			let dy = [0, 1, 0, -1]; //열 
 
 			for(let i=0; i<n; i++){
 				for(let j=0; j<n; j++){
-					let flag=1;
+					let flag=1; // 초기값: 일단 봉우리라고 가정
 					for(let k=0; k<4; k++){
 						let nx = i+dx[k]; //[k]는 dx와 dy 배열에서 현재 방향을 나타내는 인덱스
-						let ny = j+dy[k];
+						let ny = j+dy[k]; //k는 0부터 3까지만 반복하면서 네 방향(상, 우, 하, 좌)으로 이동
 						/*
 						k = 0일 때: dx[0] = -1, dy[0] = 0 → 위쪽으로 한 칸 이동
 						k = 1일 때: dx[1] = 0, dy[1] = 1 → 오른쪽으로 한 칸 이동
 						k = 2일 때: dx[2] = 1, dy[2] = 0 → 아래쪽으로 한 칸 이동
 						k = 3일 때: dx[3] = 0, dy[3] = -1 → 왼쪽으로 한 칸 이동
 						*/
-						if(nx>=0 && nx<n && ny>=0 && ny<n && arr[nx][ny]>=arr[i][j]){
-							flag=0;
-							break;
+						if(nx>=0 && nx<n && ny>=0 && ny<n){
+							//nx>=0 && nx<n nx(행)가 배열 범위를 벗어나지 않도록 체크
+							if(arr[nx][ny]>=arr[i][j]){
+								flag=0; // 봉우리가 아님
+								break;
+								//arr[nx][ny]>=arr[i][j] -> 현재 위치 (i, j)보다 상하좌우에 있는 값이 더 크거나 같은지 확인
+							}
 						}
 					}
 					if(flag) answer++;
