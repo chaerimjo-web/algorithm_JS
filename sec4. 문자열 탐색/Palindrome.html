@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Palindrome</title>
+</head>
+<body>
+	<script>
+		/*알파벳만 비교. 알파벳 이외의 것은 무시한다.*/
+		//소문자가 아닌 것은 빈 문자로 변경한다. 
+		function solution(str){
+			let answer="YES";
+			str=str.toLowerCase().replace(/[^a-z]/g, '');
+
+			if(str.split().reverse().join()!== str)  return "NO";
+			
+			console.log(str);
+			return answer;
+
+		}
+		let str="found7, time: study; Yduts; emit, 7Dnuof";
+		console.log(solution(str));
+		
+	</script>
+</body>
+</html>

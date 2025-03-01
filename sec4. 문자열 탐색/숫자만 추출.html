@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>숫자만 추출</title>
+</head>
+<body>
+	<script>
+		function solution(s){
+			let answer=0;
+
+			for(let x of s){
+				//isNaN -> 숫자가 아니라면 
+				if(!isNaN(x)) answer=answer*10+Number(x); //문자열에서 숫자로 변환해준다. 
+			}
+			/*
+			answer=answer*10+Number(x)
+			0208
+			0 = 0*10+0
+			2 = 0*10+2
+			20 = 2*10+0
+			208 = 20*10+8
+			= 208
+			*/
+
+			return answer;
+		}
+		let str="g0en2T0s8eSoft";
+		console.log(solution(str));
+		
+	</script>
+</body>
+</html>
