@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>자릿수의 합</title>
+</head>
+<body>
+	<script>
+		//내장함수로 활용하기 
+		function solution(arr){
+			let answer, max=Number.MIN_SAFE_INTEGER;
+			for(let x of arr){
+				sum=x.toString().split('').reduce((a,b)=>a+Number(b), 0);
+				// console.log(sum);
+				/*
+					스트링화 문자화하기.문자를 배열화.합하기
+					a 누적값
+					b 1,2,8이 되고 a에 누적시킨다. -> 넘버화, 0으로 초기화. 
+				*/
+				
+				if(sum>max){
+					max=sum;
+					answer=x; 
+				}else if(sum===max){ 
+					if(x>answer) answer=x; 
+				}
+			}
+			return answer;
+		}
+		let arr=[128, 460, 603, 40, 521, 137, 123];
+		console.log(solution(arr));
+		
+	</script>
+</body>
+</html>

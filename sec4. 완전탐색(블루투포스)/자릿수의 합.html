@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>자릿수의 합</title>
+</head>
+<body>
+	<div>
+		sum+=(tmp%10);
+		10으로 나눈 나머지가 더해진다. 
+		<br>
+		tmp=Math.floor(tmp/10); 몫
+		<br>
+		128 % 10 = 나머지 8 -> 8을 sum에 누적 
+		10으로 나눈 몫으로 바뀜 ->12
+		<br>
+		12 % 10 = 나머지 2
+		12으로 나눈 몫 ->1
+		<br>
+		1 % 10 = 나머지 1 
+		<br>
+		1을 10으로 나눈 몫 ->0 break;
+		<br>
+		// 8,2,1 을 sum에다 누적한다. <br>
+		------------------------------------------<br>
+		tmp가 0이면 멈춤
+		<br><br>
+		<img src="image/자릿수의 합.png" alt=""><br><br>
+		<img src="image/자릿수 합.png" alt="">
+	</div>
+	<script>
+		//1. 각 자릿수의 합 구하기
+		//2. 최대 자연수 출력하기 
+		function solution(arr){
+			let answer, max=Number.MIN_SAFE_INTEGER;
+			for(let x of arr){
+				let sum=0, tmp=x; //원본이 0이 되면 안되니 가상 변수를 만든다. 
+				while(tmp){
+					sum+=(tmp%10);
+					tmp=Math.floor(tmp/10); //자릿수가 다 더해진다. 
+					//sum-> 11,10,9,4,8,11,6
+				}
+				// console.log(sum); 
+				if(sum>max){
+					max=sum;
+					answer=x; //원본으로 대체한다. 
+				}else if(sum===max){ //같은 값이 출력되면
+					if(x>answer) answer=x; 
+				}
+
+			}
+			return answer;
+		}
+		let arr=[128, 460, 603, 40, 521, 137, 123];
+		console.log(solution(arr));
+		
+	</script>
+</body>
+</html>
