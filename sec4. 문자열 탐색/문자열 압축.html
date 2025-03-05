@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>문자열 압축</title>
+</head>
+<body>
+	<script>
+		function solution(str){
+			let answer="";
+			str=str+" "; //마지막 문자도 비교해야되기 때문에 뒤에 공백 한칸을 둔다. 
+			let cnt=1;
+
+			for(let i=0; i<str.length-1; i++){ //문자 맨 뒤 공백 한칸이 있어서 -1
+				if(str[i]===str[i+1]) cnt++;
+				else{
+					answer+=str[i]; //문자열만 입력 
+					if(cnt>1) answer+=String(cnt); //1이상이면 숫자를 붙힌다.
+					cnt=1; //초기화
+				}
+			}
+
+			return answer;
+		}
+		let str="KKHSSSSSSSE";
+		console.log(solution(str));
+		
+	</script>
+</body>
+</html>
