@@ -23,6 +23,20 @@
 
 			<h3>split함수</h3>
 			<p> string.split(separator, limit) <br> 문자열을 배열로 변환해준다. </p>
+			<p>split() 메서드는 String 객체를 지정한 구분자를 이용하여 여러 개의 문자열로 나눕니다.</p>
+			<br>
+			<p>
+				ex.
+				<br>
+				let str = "goos";<br>
+			</p>
+			<strong>
+				console.log(s.split('')); -> ['g', 'o', 'o', 's']
+				<br>
+				console.log(s.split('').reverse()); -> ['s', 'o', 'o', 'g']
+				<br>
+				console.log(s.split('').reverse().join("")); -> soog
+			</strong>
 		</p>
 	</div>
 	<script>
@@ -46,7 +60,7 @@
 			let answer="YES";
 			s = s.toLowerCase();
 			if(s.split('').reverse().join("")!== s)  return "NO"; //문자열을 반대로 나열한 것과 비교
-			console.log(s.split('').reverse().join(''));
+			console.log(s.split('').reverse().join(""));
 			
 			
 			return answer;
