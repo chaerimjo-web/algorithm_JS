@@ -40,6 +40,12 @@
 		</p>
 	</div>
 	<script>
+		/*
+			1. 회문문자열 - "YES" / 아니면 "NO"
+			2. 대소문자 구분하지 않는다.
+		*/
+
+		/* 길이로 구분한 회문문자열 */
 		// function solution(s){
 		// 	let answer="YES";
 		// 	let len = s.length;
@@ -55,7 +61,7 @@
 		// console.log(solution(str));
 		
 		
-		//reverse  -> split 메서드 사용한 회문 문자열
+		/* reverse  -> split 메서드 사용한 회문 문자열 */
 		function solution(s){
 			let answer="YES";
 			s = s.toLowerCase();

@@ -60,6 +60,7 @@
 			p=1000;
 			for(let i=str.length-1; i>=0; i--){
 				if(str[i]===t) p=0;
+				// answer.push(p); -> 이미 첫번째 포문에서 채워졌기 때문에 푸시하면 안된다. 
 				else{
 					p++;
 					answer[i]=Math.min(answer[i], p);
