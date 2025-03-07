@@ -6,6 +6,11 @@
 	<title>자릿수의 합</title>
 </head>
 <body>
+	<div>
+		<strong>sum=x.toString().split('').reduce((a,b)=>a+Number(b), 0);</strong>
+		<br><br>a의 초기값을 0으로 설정<br><br>
+		만약 0을 생략하면,"1" + 2 → "12", "12" + 8 → "128"이 되어 의도와 다르게 동작할 수 있음.
+	</div>
 	<script>
 		//내장함수로 활용하기 
 		function solution(arr){
@@ -14,7 +19,7 @@
 				sum=x.toString().split('').reduce((a,b)=>a+Number(b), 0);
 				// console.log(sum);
 				/*
-					스트링화 문자화하기.문자를 배열화.합하기
+					숫자를 스트링화 문자화하기.문자를 배열화.합하기
 					a 누적값
 					b 1,2,8이 되고 a에 누적시킨다. -> 넘버화, 0으로 초기화. 
 				*/
