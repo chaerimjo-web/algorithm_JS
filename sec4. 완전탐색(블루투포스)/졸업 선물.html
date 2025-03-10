@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>졸업 선물</title>
+</head>
+<body>
+	<div>
+		현재 예산으로 최대 몇 명의 학생에게 선물을 사줄 수 있는지 구하는 프로그램
+
+		상품의 가격 / 배송비 
+		<br><br>
+		answer 살수있는 상품의 개수<br>
+		n=학생수<br><br>
+
+		금액 오름차순<br>
+		a 0 상품가격 a 1 배송비 - b<br><br>
+
+		i번째의 상품을 할인받는다. -> i는 할인된 상품<br>
+			money=원래 예산에서 i번째상품, 상품가격 할인된 상품에서 남는 금액<br>
+		money 남은 예산 <br><br>
+
+		몇개 살 수 있는지 카운팅 cnt<br><br>
+
+		j는 사려는 제품<br>
+		상품금액과 배송비를 합한 금액이 money 남은예산보다 작거나  같으면,
+		남은 예산에서 상품금액을 뺀다. 
+		<br><br>
+		금액이 오름차순으로 정렬이 되어야 예산이 남을 때 예산에서 그 다음 상품을 뺄 수 있다. 
+	</div>
+	<script>
+		function solution(m, arr){
+			let answer=0;
+			let n=arr.length;
+
+			arr.sort((a,b)=>(a[0]+a[1])-(b[0]+b[1]));
+			console.log(arr);
+			
+			for(let i=0; i<n; i++){ //할인된 금액 
+				let money=m-(arr[i][0]/2+arr[i][1]); //할인된 금액을 빼고 남은 예산 
+				let cnt=1;
+				for(let j=0; j<n; j++){ //사려는 제품 
+					if(arr[j]!==arr[i] && (arr[j][0]+arr[j][1])>money) break;
+					//다음 상품이 남은 예산보다 적은 금액이면 구매가 가능하다 -> 예산에서 해당 금액을 뺀다. 
+					if(arr[j]!==arr[i] && (arr[j][0]+arr[j][1])<=money){
+						money-=(arr[j][0]+arr[j][1]);
+						cnt++;
+					}
+				}
+				answer=Math.max(answer, cnt);			
+			}
+			return answer;
+		}
+		let arr=[[6,6],[2,2],[4,3],[4,5],[10,3]];
+		console.log(solution(28, arr));
+		
+	</script>
+</body>
+</html>
