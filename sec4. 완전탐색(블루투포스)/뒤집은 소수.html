@@ -29,11 +29,12 @@
 
 	<script>
 		function isPrime(num){
-			if(num===1) return false;
-			for(let i=2; i<=parseInt(Math.sqrt(num)); i++){ //제곱근 반환 
-				if(num%i===0) return false;
+			if(num===1) return false; //예외 처리: 1은 소수가 아니다. -> false 반환
+			for(let i=2; i<=parseInt(Math.sqrt(num)); i++){ //제곱근까지만 확인
+				if(num%i===0) return false; 
+				//i를 2부터 시작해 Math.sqrt(num) 까지 나눠서 나머지가 0이면 소수가 아님.
 			}
-			return true;
+			return true; //모든 검사를 통과하면 소수이다.
 		}
 
 		function solution(arr){
