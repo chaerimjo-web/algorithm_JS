@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>K번째 큰 수</title>
+</head>
+<body>
+	<h1>기록한 값 중 K번째로 큰 수를 출력하는 프로그램</h1>
+	<h1>set 함수 - 중복 제거 </h1><br>
+	<h1> tmp를 바로 사용할 수 없는 이유</h1>
+	<h3>Set은 순서를 보장하지 않아서 정렬이 필요함.</h3>
+	<h3>Set은 배열이 아니라 .sort()를 직접 사용할 수 없음.</h3><br>
+	<h1>a를 따로 만드는 이유</h1>
+	<h3>Set을 배열로 변환하기 위해</h3>
+	<h3>내림차순 정렬</h3>
+	<h3>a[k-1]로 k번째 큰 값을 쉽게 찾을 수 있음!</h3><br>
+	<div>
+		<h3>Array.from</h3>
+		<p>Array.from 은 유사 배열 객체를 배열로 바꾸는데 사용 </p>
+		<p>Set 객체 -> Array.from</p><br>
+	</div>
+	<img src="image/k-1.png" alt=""><br><br>
+
+	<script>
+		function solution(n, k, card){
+			let answer;
+			let tmp= new Set(); //중복 제거 
+
+			for(let i=0; i<n; i++){
+				for(let j=i+1; j<n; j++){
+					for(let k=j+1; k<n; k++){
+						tmp.add(card[i]+card[j]+card[k]); //3장의 카드 뽑기 
+						// console.log(tmp);
+					}
+				}
+			}
+			let a=Array.from(tmp).sort((a,b)=>b-a); //내림차순 
+			answer=a[k-1]; //
+
+			return answer;
+
+		}
+		let arr=[13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+		console.log(solution(10, 3, arr));
+		
+	</script>
+</body>
+</html>
