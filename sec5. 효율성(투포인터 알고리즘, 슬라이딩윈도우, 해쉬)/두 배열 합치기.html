@@ -11,7 +11,20 @@
 	<div>&& 둘 중 하나만 거짓이 되면 거짓이다. </div>
 	<div>p1 이 n이 되거나 혹은 p2가 m만큼 다 돌면 반복문을 멈춘다. </div>
 	<div>p1이가리키고있는 값을 먼저 푸시하고 그다음 p1이 플러스 </div>
-
+	<hr>
+	<h3>1. 변수를 선언한 후 a와 b의 길이만큼 돈다.</h3>
+	<h3>2. a가 b보다 작으면 a를 푸시한다.</h3>
+	<h3>3. p1을 한 칸씩 이동하면서 값을 하나씩 가져온다.</h3>
+	<hr>
+	<b>후치연산자</b>
+	<p>
+		초기 p1 = 0, p2 = 0 <br>
+		arr1[p1] = 1, arr2[p2] = 2<br>
+		1 < 2 이므로, answer.push(arr1[p1++]); 실행됨<br>
+		arr1[0] = 1 추가 후, p1이 1 증가하여 p1 = 1<br>
+		다음 비교는 arr1[1] = 3과 arr2[0] = 2가 됨.<br>
+	</p>
+	<img src="image/while문.png" alt="">
 	<script>
 		function solution(arr1, arr2){
 			let answer=[];
@@ -27,8 +40,9 @@
 			//a가 b보다 작으면 a를 푸시한다.
 			//p1->3 | p2->2
 			//n->3 | m->=5
-			while(p1<n) answer.push(arr1[p1++]);
+			while(p1<n) answer.push(arr1[p1++]); 
 			while(p2<m) answer.push(arr2[p2++]);
+			//p2가 arr2의 끝에 도달할 때까지 하나씩 answer에 추가
 			//arr1[p1++]을 사용해서, p1을 한 칸씩 이동하면서 값을 하나씩 가져온다.
 			
 
