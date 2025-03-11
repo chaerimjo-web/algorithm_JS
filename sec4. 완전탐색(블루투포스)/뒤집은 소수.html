@@ -42,9 +42,9 @@
 			for(let x of arr){
 				let res=0;
 				while(x){
-					let t=x%10; //마지막 자릿수 가져오기
-					res=res*10+t; //res를 10배하고 마지막 자릿수를 추가 (뒤집기)
-					x=parseInt(x/10); //x에서 마지막 자릿수를 제거
+					let t=x%10; //마지막 자릿수 가져오기 |  //t=7 / t=0 / t=3
+					res=res*10+t; //뒤집은 수를 res에 넣기 //res=7 / res=70 / res=703
+					x=parseInt(x/10); //x에서 마지막 자릿수를 제거 //x=30 / x=3 / x=0
 				}
 				// console.log(res);
 				if(isPrime(res)) answer.push(res);

@@ -45,13 +45,15 @@
 				}
 				// console.log(sum); 
 				if(sum>max){
-					max=sum;
-					answer=x; //원본으로 대체한다. 
+					max=sum; //자릿수의 합 ex)11
+					answer=x; //현재까지 발견된 가장 큰 자리수 합을 가진 숫자를 answer에 저장 ex)128
 				}else if(sum===max){ //같은 값이 출력되면
 					if(x>answer) answer=x; 
+					//x는 arr 배열에서 하나씩 꺼낸 현재 비교 중인 숫자
 					/*
 					현재 숫자의 자릿수 합이 기존 최대값과 같다면, 숫자 x 자체가 더 크다면 answer를 x로 갱신
 					*/
+					//137의 자리수 합 11, 128과 같지만 137 > 128이므로 answer = 137
 				}
 
 			}
