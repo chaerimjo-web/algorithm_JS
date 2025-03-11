@@ -39,7 +39,7 @@
 			
 			for(let i=0; i<n; i++){ //할인된 금액 
 				let money=m-(arr[i][0]/2+arr[i][1]); //할인된 금액을 빼고 남은 예산 
-				let cnt=1;
+				let cnt=1; //할인했을 때 살 수 있는 개수
 				for(let j=0; j<n; j++){ //사려는 제품 
 					if(arr[j]!==arr[i] && (arr[j][0]+arr[j][1])>money) break;
 					//다음 상품이 남은 예산보다 적은 금액이면 구매가 가능하다 -> 예산에서 해당 금액을 뺀다. 
@@ -48,7 +48,7 @@
 						cnt++;
 					}
 				}
-				answer=Math.max(answer, cnt);			
+				answer=Math.max(answer, cnt);	//현재까지 찾은 가장 큰 cnt 값을answer에 갱신
 			}
 			return answer;
 		}
